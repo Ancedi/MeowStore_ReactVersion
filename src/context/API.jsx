@@ -1,4 +1,4 @@
-async function GetCats(){
+export default async function GetCats(){
     const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=30&has_breeds=1&api_key=live_h8YWhscJZVWoGk9IshWtNApDx9WMXumpAH8aQcBHXoRxFNnsoL5c60KQRigQvrJV');
     if (!response.ok){
         throw new Error(`HTTP Error: ${response.status}`);
