@@ -1,15 +1,25 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
+import GetCats from "../components/API";
 
-let AllCats = await GetCats();
-
-function Search(){
+function Catalogue(){
     const [text, setText] = useState("");
+    const [allCats, setAllCats] = useState([]);
+
+    useEffect(() => {
+        async function loadCats(){
+            const cats = await GetCats();
+            console.log("cats:", cats);
+            setAllCats(cats);
+        }
+
+        loadCats();
+    }, []);
 
     const handleSearch = (e) => {
         setText(e.target.value);
     };
 
-    const filteredSearch = AllCats.filter((cat) => 
+    const filteredSearch = allCats.filter((cat) => 
         cat.breeds[0].name.toLowerCase().includes(text.toLowerCase())
     );
 
@@ -22,6 +32,18 @@ function Search(){
                 placeholder="Search..."
             />
             <p>Searching For: {text === "" ? "All" : text}</p>
+
+            <ul>
+                {filteredSearch.map((cat, index) =>{
+                    return (
+                        <li key={index}>
+                            {cat.breeds[0].name}
+                        </li>
+                    );
+                })}
+            </ul>
         </div>
     )
 }
+
+export default Catalogue;
