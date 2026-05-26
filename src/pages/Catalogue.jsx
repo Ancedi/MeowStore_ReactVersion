@@ -1,5 +1,6 @@
 import {useState, useEffect} from "react";
 import GetCats from "../components/API";
+import '../css/CatalogueStyles.css';
 
 function Catalogue(){
     const [text, setText] = useState("");
@@ -33,10 +34,10 @@ function Catalogue(){
             />
             <p>Searching For: {text === "" ? "All" : text}</p>
 
-            <ul>
+            <ul className="grid">
                 {filteredSearch.map((cat, index) =>{
                     return (
-                        <li key={index}>
+                        <li className="card" key={index}>
                             {cat.breeds[0].name}
                         </li>
                     );

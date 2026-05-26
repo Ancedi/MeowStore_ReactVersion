@@ -9,15 +9,25 @@ import Catalogue from './pages/Catalogue';
 
 // Global nav link styles — applies active/inactive states to navigation links
 import './css/NavLinkStyles.css';
+import { useTheme } from './context/ThemeContext';
+
+const navLinkClass = ({isActive}) =>
+  isActive ? "nav-link active" : "nav-link";
 
 function App() {
+  const {theme, toggleTheme} = useTheme();
   return(
     <BrowserRouter>
       <nav className="nav">
-        <NavLink to="/" className="nav-link">Home</NavLink> |{" "}
-        <NavLink to="/catalogue" className="nav-link">Catalogue</NavLink> |{" "}
-        <NavLink to="/about" className="nav-link">About</NavLink> |{" "}
-        <NavLink to="/contact" className="nav-link">Contact</NavLink> |{" "}
+        <div className={theme}>
+          <button onClick={toggleTheme}>
+            <p>{theme} Mode</p>
+          </button>
+        </div>
+        <NavLink to="/" className={navLinkClass}>Home</NavLink>
+        <NavLink to="/catalogue" className={navLinkClass}>Catalogue</NavLink>
+        <NavLink to="/about" className={navLinkClass}>About</NavLink>
+        <NavLink to="/contact" className={navLinkClass}>Contact</NavLink>
       </nav>
       <Routes>
         <Route path="/" element={<Home/>}/>
