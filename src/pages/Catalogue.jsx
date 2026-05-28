@@ -21,7 +21,7 @@ function Catalogue(){
     };
 
     const filteredSearch = allCats.filter((cat) => 
-        cat.breeds[0].name.toLowerCase().includes(text.toLowerCase())
+        cat.breeds.length > 0 && cat.breeds[0].name.toLowerCase().includes(text.toLowerCase())
     );
 
     return (
@@ -35,10 +35,14 @@ function Catalogue(){
             <p>Searching For: {text === "" ? "All" : text}</p>
 
             <ul className="grid">
-                {filteredSearch.map((cat, index) =>{
+                {filteredSearch.map((cat) =>{
                     return (
-                        <li className="card" key={index}>
-                            {cat.breeds[0].name}
+                        <li className="card" key={cat.breeds[0].id}>
+                            <p>{cat.breeds[0].reference_image_id}</p>
+                            <p>{cat.breeds[0].name} Alt:{cat.breeds[0].alt_names || "N/A"}</p>
+                            <p>{cat.breeds[0].origin}</p>
+                            <p>{cat.breeds[0].temperament}</p>
+                            <p>{cat.breeds[0].description}</p>
                         </li>
                     );
                 })}
