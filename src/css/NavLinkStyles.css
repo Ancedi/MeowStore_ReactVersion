@@ -21,3 +21,14 @@ a.nav-link.active{
     gap: 10px;
     align-items: center;
 }
+
+.dark {
+    a {
+        background-color: white;
+    }
+}
+.light {
+    a {
+        background-color: black;
+    }
+}

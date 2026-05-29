@@ -1,25 +1,21 @@
 /* DARK MODE */
 .dark{
-    --bg: black;
-    --text: white;
-    --nav: gray;
-    --card: black;
-    --border: #444;
-
-    background-color: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
+    --bg: #000000;
+    --text: #ffffff;
+    --hoverText: #dddddd;
+    --activeText: #4da3ff;
+    --nav: #1f1f1f;
+    --card: #111111;
+    --border: #444444;
 }
 
-/* LIGHT MODE*/
+/* LIGHT MODE */
 .light{
-    --bg: white;
-    --text: black;
-    --nav: gray;
-    --card: white;
+    --bg: #ffffff;
+    --text: #000000;
+    --hoverText: #333333;
+    --activeText: #0077ff;
+    --nav: #f1f1f1;
+    --card: #ffffff;
     --border: #cccccc;
-
-    background-color: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
 }
