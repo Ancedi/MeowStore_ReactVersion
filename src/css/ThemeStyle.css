@@ -1,0 +1,25 @@
+/* DARK MODE */
+.dark{
+    --bg: black;
+    --text: white;
+    --nav: gray;
+    --card: black;
+    --border: #444;
+
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+/* LIGHT MODE*/
+.light{
+    --bg: white;
+    --text: black;
+    --nav: gray;
+    --card: white;
+    --border: #cccccc;
+
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+}

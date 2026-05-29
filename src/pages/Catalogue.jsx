@@ -38,7 +38,7 @@ function Catalogue(){
                 {filteredSearch.map((cat) =>{
                     return (
                         <li className="card" key={cat.breeds[0].id}>
-                            <p>{cat.breeds[0].reference_image_id}</p>
+                            <img src={cat.url}/>
                             <p>{cat.breeds[0].name} Alt:{cat.breeds[0].alt_names || "N/A"}</p>
                             <p>{cat.breeds[0].origin}</p>
                             <p>{cat.breeds[0].temperament}</p>
